@@ -5,7 +5,9 @@ return {
       cmake_command = 'cmake',
       ctest_command = 'ctest',
       cmake_regenerate_on_save = false,
-      -- cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
+      -- Exporting the compile commands will create a file that lists all file paths of the dependencies.
+      -- Use those paths to tell nvim where to find the files for the 'go to file' command
+      cmake_generate_options = { '-DCMAKE_EXPORT_COMPILE_COMMANDS=1' },
       -- cmake_build_options = {},
       cmake_dap_configuration = { -- debug settings for cmake
         name = 'cpp',
